@@ -1,0 +1,138 @@
+/* Duplicates Analyzer App Styles */
+#duplicates-analyzer-container textarea {
+    min-height: 150px;
+    margin-bottom: 15px;
+    font-family: monospace;
+  }
+  
+  .analyzer-inputs {
+    margin-bottom: 20px;
+  }
+  
+  .separator-input {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    gap: 10px;
+  }
+  
+  .separator-input input {
+    max-width: 100px;
+    margin: 0;
+  }
+  
+  .analyzer-actions {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+  }
+  
+  .duplicate-selector {
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 6px;
+  }
+  
+  .duplicate-selector h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  
+  .checkbox-item input {
+    margin-right: 5px;
+  }
+  
+  .join-separator {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    gap: 10px;
+  }
+  
+  .join-separator input {
+    max-width: 100px;
+    margin: 0;
+  }
+  
+  .preview-area {
+    margin-top: 20px;
+  }
+  
+  .preview-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .preview-table th,
+  .preview-table td {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .preview-table th {
+    background: rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+  }
+  
+  .preview-table tr:first-child th:first-child {
+    border-top-left-radius: 6px;
+  }
+  
+  .preview-table tr:first-child th:last-child {
+    border-top-right-radius: 6px;
+  }
+  
+  .preview-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .copy-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  @media (max-width: 768px) {
+    .analyzer-actions,
+    .copy-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .analyzer-actions button,
+    .copy-buttons button {
+      width: 100%;
+    }
+    
+    .checkbox-group {
+      flex-direction: column;
+    }
+    
+    .checkbox-item {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }

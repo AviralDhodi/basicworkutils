@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Homepage Dashboard</title>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Widget CSS -->
+  <link rel="stylesheet" href="css/widgets/bookmarks.css">
+  <link rel="stylesheet" href="css/widgets/weather.css">
+  <link rel="stylesheet" href="css/widgets/clock.css">
+  <link rel="stylesheet" href="css/widgets/notes.css">
+  <!-- App CSS -->
+  <link rel="stylesheet" href="css/apps/apps.css">
+  <link rel="stylesheet" href="css/apps/list-formatter.css">
+  <link rel="stylesheet" href="css/apps/list-comparison.css">
+  <link rel="stylesheet" href="css/apps/duplicates-analyzer.css">
+  <!-- Tool CSS -->
+  <link rel="stylesheet" href="css/calculator.css">
+  <link rel="stylesheet" href="css/excalidraw.css">
+</head>
+<body>
+  <div class="overlay"></div>
+  
+  <div class="container">
+    <!-- Top Bar with Quick Actions -->
+    <div class="top-bar">
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search the web...">
+        <button id="search-button">Search</button>
+      </div>
+      
+      <div class="quick-actions">
+        <button id="create-excel" class="action-btn excel-btn">New Excel</button>
+        <button id="create-word" class="action-btn word-btn">New Word</button>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content">
+      <!-- Widgets Section -->
+      <div class="widgets-container">
+        <!-- Clock Widget -->
+        <div class="widget" id="clock-widget">
+          <div class="widget-header">
+            <h3>Clock</h3>
+          </div>
+          <div class="widget-content">
+            <div class="clock-time" id="clock-time">00:00</div>
+            <div class="clock-seconds" id="clock-seconds">00</div>
+            <div class="clock-date" id="clock-date">Monday, January 1</div>
+            <div class="clock-greeting" id="clock-greeting">Good morning</div>
+            
+            <div class="clock-options">
+              <button class="clock-option-btn" id="format-12h">12h</button>
+              <button class="clock-option-btn active" id="format-24h">24h</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Weather Widget -->
+        <div class="widget" id="weather-widget">
+          <div class="widget-header">
+            <h3>Weather</h3>
+            <button class="edit-btn" id="edit-weather">✏️</button>
+          </div>
+          <div class="widget-content">
+            <div id="weather-loading" class="weather-loading">
+              <span class="loading-spinner"></span> Loading weather...
+            </div>
+            
+            <div id="weather-content" class="hidden">
+              <div class="weather-content">
+                <div class="weather-icon" id="weather-icon">☀️</div>
+                <div class="weather-info">
+                  <div class="weather-temp" id="weather-temp">--°C</div>
+                  <div class="weather-desc" id="weather-desc">--</div>
+                </div>
+              </div>
+              
+              <div class="weather-details">
+                <div class="weather-detail">
+                  <i>💧</i> <span id="weather-humidity">--%</span>
+                </div>
+                <div class="weather-detail">
+                  <i>💨</i> <span id="weather-wind">-- km/h</span>
+                </div>
+              </div>
+              
+              <div class="weather-location" id="weather-location">Location not found</div>
+              
+              <div class="weather-units">
+                <button class="weather-unit-btn active" id="unit-c">°C</button>
+                <button class="weather-unit-btn" id="unit-f">°F</button>
+              </div>
+            </div>
+            
+            <div id="weather-error" class="weather-error hidden">
+              Unable to load weather. Please check your connection and location settings.
+            </div>
+            
+            <div id="weather-edit" class="weather-edit hidden">
+              <input type="text" id="location-input" placeholder="Enter city name">
+              <div id="location-suggestions" class="location-suggestions hidden"></div>
+              <div class="weather-edit-buttons">
+                <button id="cancel-weather-edit">Cancel</button>
+                <button id="use-current-location">Current Location</button>
+                <button id="apply-weather-edit">Apply</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bookmarks Widget -->
+        <div class="widget" id="bookmarks-widget">
+          <div class="widget-header">
+            <h3>Bookmarks</h3>
+            <button class="edit-btn" id="edit-bookmarks">✏️</button>
+          </div>
+          <div class="widget-content">
+            <div id="bookmarks-list"></div>
+            <div id="add-bookmark-form" class="hidden">
+              <input type="text" id="bookmark-name" placeholder="Name">
+              <input type="text" id="bookmark-url" placeholder="URL">
+              <div class="bookmark-buttons">
+                <button id="cancel-bookmark">Cancel</button>
+                <button id="save-bookmark">Save</button>
+              </div>
+            </div>
+            <button id="add-bookmark-btn" class="add-btn">+ Add Bookmark</button>
+          </div>
+        </div>
+        
+        <!-- Notes Widget (Simplified) -->
+        <div class="widget" id="notes-widget">
+          <div class="widget-header">
+            <h3>Notes</h3>
+          </div>
+          <div class="widget-content">
+            <textarea id="note-content" class="note-content" placeholder="• Type your notes here..."></textarea>
+            <div id="note-status" class="note-status"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Apps Section -->
+      <div class="apps-container">
+        <h3>Apps</h3>
+        <div class="apps-grid" id="apps-grid">
+          <!-- Apps will be dynamically added here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calculator Modal -->
+  <div id="calculator-modal" class="modal hidden">
+    <div class="calculator-container">
+      <div class="calculator-header">
+        <span>Calculator</span>
+        <button id="close-calculator" class="close-btn">×</button>
+      </div>
+      <div class="calculator-display">
+        <div id="calc-history"></div>
+        <div id="calc-result">0</div>
+      </div>
+      <div class="calculator-buttons">
+        <button class="calc-btn calc-clear">C</button>
+        <button class="calc-btn calc-op">±</button>
+        <button class="calc-btn calc-op">%</button>
+        <button class="calc-btn calc-op calc-highlight">÷</button>
+        
+        <button class="calc-btn calc-num">7</button>
+        <button class="calc-btn calc-num">8</button>
+        <button class="calc-btn calc-num">9</button>
+        <button class="calc-btn calc-op calc-highlight">×</button>
+        
+        <button class="calc-btn calc-num">4</button>
+        <button class="calc-btn calc-num">5</button>
+        <button class="calc-btn calc-num">6</button>
+        <button class="calc-btn calc-op calc-highlight">-</button>
+        
+        <button class="calc-btn calc-num">1</button>
+        <button class="calc-btn calc-num">2</button>
+        <button class="calc-btn calc-num">3</button>
+        <button class="calc-btn calc-op calc-highlight">+</button>
+        
+        <button class="calc-btn calc-num calc-zero">0</button>
+        <button class="calc-btn calc-num">.</button>
+        <button class="calc-btn calc-equals calc-highlight">=</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript -->
+  <script src="js/background.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/excalidraw.js"></script>
+  <!-- Widget JavaScript -->
+  <script src="js/widgets/bookmarks.js"></script>
+  <script src="js/widgets/weather.js"></script>
+  <script src="js/widgets/clock.js"></script>
+  <script src="js/widgets/notes.js"></script>
+  <!-- App JavaScript -->
+  <script src="js/apps/apps-manager.js"></script>
+  <script src="js/apps/list-formatter.js"></script>
+  <script src="js/apps/list-comparison.js"></script>
+  <script src="js/apps/duplicates-analyzer.js"></script>
+  <!-- Main App JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+/* Calculator Modal Styles */
+.calculator-container {
+    width: 320px;
+    background: rgba(40, 44, 52, 0.95);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .calculator-header {
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    user-select: none;
+  }
+  
+  .calculator-display {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: right;
+  }
+  
+  #calc-history {
+    min-height: 20px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px;
+  }
+  
+  #calc-result {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: white;
+  }
+  
+  .calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .calc-btn {
+    padding: 15px 0;
+    font-size: 1.2rem;
+    background: rgba(60, 64, 72, 0.95);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+    user-select: none;
+  }
+  
+  .calc-btn:hover {
+    background: rgba(80, 84, 92, 0.95);
+  }
+  
+  .calc-btn:active {
+    background: rgba(100, 104, 112, 0.95);
+  }
+  
+  .calc-highlight {
+    background: rgba(255, 149, 0, 0.9);
+  }
+  
+  .calc-highlight:hover {
+    background: rgba(255, 149, 0, 1);
+  }
+  
+  .calc-zero {
+    grid-column: span 2;
+  }
+  
+  .calc-clear {
+    color: #ff375f;
+  }
+  
+  .calc-equals {
+    grid-column: span 1;
+  }
+  
+  /* Animation for Calculator */
+  @keyframes calc-appear {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  #calculator-modal .calculator-container {
+    animation: calc-appear 0.3s ease forwards;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 400px) {
+    .calculator-container {
+      width: 100%;
+      max-width: 320px;
+    }
+  }

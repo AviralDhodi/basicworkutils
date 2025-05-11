@@ -1,0 +1,68 @@
+/* Clock Widget Styles */
+#clock-widget {
+    min-height: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .clock-time {
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    line-height: 1;
+  }
+  
+  .clock-date {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    opacity: 0.9;
+  }
+  
+  .clock-greeting {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 5px;
+  }
+  
+  .clock-seconds {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Format options */
+  .clock-options {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .clock-option-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+  
+  .clock-option-btn.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Animation for time updates */
+  @keyframes time-update {
+    0% { opacity: 0.7; transform: scale(0.98); }
+    50% { opacity: 1; transform: scale(1.02); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  
+  .time-updated {
+    animation: time-update 0.5s ease-out;
+  }

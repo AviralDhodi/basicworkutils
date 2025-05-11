@@ -1,0 +1,93 @@
+/* Excalidraw Styles */
+
+/* Edge trigger */
+.edge-trigger {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(3px);
+    border-radius: 4px 0 0 4px;
+    cursor: pointer;
+    z-index: 900;
+    transition: all 0.3s ease;
+  }
+  
+  .edge-trigger:hover {
+    width: 15px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Excalidraw Modal */
+  .excalidraw-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+  }
+  
+  .excalidraw-modal.hidden {
+    display: none !important;
+  }
+  
+  .excalidraw-container {
+    width: 90%;
+    height: 90%;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .excalidraw-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    z-index: 10;
+  }
+  
+  .close-excalidraw {
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .close-excalidraw:hover {
+    background: white;
+  }
+  
+  #excalidraw-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Animation for opening the excalidraw modal */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .excalidraw-modal:not(.hidden) {
+    animation: fadeIn 0.3s ease forwards;
+  }

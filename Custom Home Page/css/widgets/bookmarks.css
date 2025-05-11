@@ -1,0 +1,126 @@
+/* Bookmarks Widget Styles */
+#bookmarks-widget {
+    min-height: 200px;
+  }
+  
+  #bookmarks-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .bookmark-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+  
+  .bookmark-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .bookmark-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .bookmark-name {
+    font-size: 0.85rem;
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .bookmark-actions {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: none;
+  }
+  
+  .bookmark-item:hover .bookmark-actions {
+    display: block;
+  }
+  
+  .bookmark-delete {
+    background: rgba(255, 0, 0, 0.6);
+    color: white;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .bookmark-delete:hover {
+    background: rgba(255, 0, 0, 0.8);
+  }
+  
+  /* Add Bookmark Form */
+  #add-bookmark-form {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+  
+  #add-bookmark-form input {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: white;
+  }
+  
+  #add-bookmark-form input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .bookmark-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .no-bookmarks {
+    text-align: center;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .no-bookmarks p {
+    margin-bottom: 15px;
+  }
+  
+  /* Edit Mode */
+  .editing-mode .bookmark-actions {
+    display: block;
+  }
+  
+  .editing-mode .bookmark-item {
+    cursor: default;
+  } 

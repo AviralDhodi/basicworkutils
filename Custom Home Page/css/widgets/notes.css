@@ -1,0 +1,50 @@
+/* Simplified Notes Widget Styles */
+#notes-widget {
+    min-height: 250px;
+  }
+  
+  .note-content {
+    width: 100%;
+    height: 200px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    resize: none;
+    font-family: inherit;
+    line-height: 1.5;
+  }
+  
+  .note-content:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  .note-content::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .note-status {
+    font-size: 0.8rem;
+    margin-top: 8px;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.7);
+    height: 20px;
+  }
+  
+  /* Bullet styling */
+  ul.note-bullets {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  ul.note-bullets li {
+    margin-bottom: 5px;
+  }
+  
+  /* Focus styles */
+  .note-content:focus {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
